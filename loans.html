@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кредиты - MBTJK</title>
+    <meta name="description" content="Выгодные кредитные программы от MBTJK для вашего бизнеса. Низкие ставки, гибкие условия, быстрое рассмотрение заявок.">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span>MBTJK</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="loans.html">Кредиты</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="loans-page">
+    <div class="container">
+      <div class="section-title">
+        <h2>Кредитные предложения</h2>
+        <p>Выберите оптимальную кредитную программу для вашего бизнеса</p>
+      </div>
+
+      <div class="loan-types">
+        <div class="loan-type">
+          <h3>Кредит "Старт"</h3>
+          <p>Для начинающих предпринимателей. Низкие процентные ставки, гибкие условия.</p>
+          <ul>
+            <li>Сумма: до 1 000 000 рублей</li>
+            <li>Срок: до 3 лет</li>
+            <li>Процентная ставка: от 10% годовых</li>
+            <li>Без залога для суммы до 500 000 рублей</li>
+          </ul>
+          <a style="margin-top: 30px" href="contact.html" class="button">Подать заявку</a>
+        </div>
+
+        <div class="loan-type">
+          <h3>Кредит "Развитие"</h3>
+          <p>Для расширения бизнеса. Выгодные условия для роста и масштабирования.</p>
+          <ul>
+            <li>Сумма: до 5 000 000 рублей</li>
+            <li>Срок: до 5 лет</li>
+            <li>Процентная ставка: от 12% годовых</li>
+            <li>Гибкий график погашения</li>
+          </ul>
+          <a style="margin-top: 76px" href="contact.html" class="button">Подать заявку</a>
+        </div>
+
+        <div class="loan-type">
+          <h3>Кредит "Инвестиционный"</h3>
+          <p>Для реализации инвестиционных проектов. Поддержка инноваций и новых технологий.</p>
+          <ul>
+            <li>Сумма: до 10 000 000 рублей</li>
+            <li>Срок: до 7 лет</li>
+            <li>Процентная ставка: от 15% годовых</li>
+            <li>Возможность отсрочки погашения основного долга</li>
+          </ul>
+          <a  href="contact.html" class="button">Подать заявку</a>
+        </div>
+      </div>
+
+      <div class="about-us-preview mb-8">
+        <div class="container" style="padding: 50px 0;">
+          <h3 style="margin-bottom: 50px">Преимущества кредитования в MBTJK</h3>
+          <div class="grid md-grid-3 gap-6">
+            <div class="service-item text-center">
+              <h4>Быстрое рассмотрение заявки</h4>
+              <p>Решение по кредиту в течение 2-3 рабочих дней</p>
+            </div>
+            <div class="service-item text-center">
+              <h4>Минимальный пакет документов</h4>
+              <p>Паспорт гражданина TJK;
+                справка о доходах и суммах налога физического лица;
+                трудовая книжка;
+                договор страхования (не обязательно);
+                СНИЛС;</p>
+            </div>
+            <div class="service-item text-center">
+              <h4>Индивидуальный подход</h4>
+              <p>Учитываем особенности вашего бизнеса</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loan-calculator">
+        <h3>Кредитный калькулятор</h3>
+        <p>Рассчитайте примерные условия кредита.</p>
+        <div class="grid md-grid-2 gap-6">
+          <div>
+            <label for="loanAmount">Сумма кредита (₽):</label>
+            <input type="number" id="loanAmount" placeholder="Введите сумму" min="100000" max="10000000" step="100000" value="1000000">
+          </div>
+          <div>
+            <label for="loanTerm">Срок кредита (месяцы):</label>
+            <input type="number" id="loanTerm" placeholder="Введите срок" min="6" max="84" step="6" value="36">
+          </div>
+        </div>
+        <button onclick="calculateLoan()">Рассчитать</button>
+        <p id="loanResult"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span class="current-year">2023</span> MBTJK. Все права защищены.</p>
+    <nav>
+      <ul>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        <li><a href="terms.html">Условия использования</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="src/js/script.js"></script>
+</body>
+</html>

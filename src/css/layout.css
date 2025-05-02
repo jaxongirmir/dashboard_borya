@@ -1,0 +1,276 @@
+@import 'variables.css';
+
+/* Layout styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Header */
+header {
+  background-color: var(--color-neutral-100);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  transition: background-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+}
+
+.logo {
+  display: block;
+  max-width: 180px;
+  transition: transform var(--transition-normal);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile navigation toggle */
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  padding: var(--spacing-2);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  nav {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--transition-normal);
+  }
+  
+  nav.open {
+    max-height: 300px;
+  }
+  
+  nav ul {
+    margin-top: var(--spacing-4);
+  }
+}
+
+@media (min-width: 768px) {
+  nav {
+    flex: 1;
+    text-align: right;
+  }
+  
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    width: auto;
+  }
+}
+
+nav li {
+  margin: 0;
+  position: relative;
+}
+
+nav a {
+  display: block;
+  padding: var(--spacing-2) var(--spacing-3);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-normal);
+}
+
+nav a:hover, nav a:focus {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  nav a {
+    padding: var(--spacing-2) var(--spacing-4);
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width var(--transition-normal);
+  }
+  
+  nav a:hover::after {
+    width: calc(100% - 32px);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-300);
+  padding-top: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--spacing-4) 0 0 0;
+}
+
+footer nav a {
+  color: var(--color-neutral-400);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+}
+
+footer nav a:hover, footer nav a:focus {
+  color: var(--color-neutral-100);
+}
+
+@media (min-width: 576px) {
+  footer nav ul {
+    margin: 0;
+  }
+}
+
+/* Sections */
+section {
+  padding: var(--spacing-12) 0;
+}
+
+section:nth-child(even) {
+  background-color: var(--color-neutral-200);
+}
+
+/* Grid and flexbox utilities */
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-4 {
+  gap: var(--spacing-4);
+}
+
+.gap-6 {
+  gap: var(--spacing-6);
+}
+
+.gap-8 {
+  gap: var(--spacing-8);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+@media (min-width: 768px) {
+  .md-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .md-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .md-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+
+.mb-6 {
+  margin-bottom: var(--spacing-6);
+}
+
+.mb-8 {
+  margin-bottom: var(--spacing-8);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+
+.mt-8 {
+  margin-top: var(--spacing-8);
+}
