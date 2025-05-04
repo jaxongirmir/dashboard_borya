@@ -13,8 +13,7 @@
       rgba(15, 76, 129, 0.9),
       rgba(5, 164, 164, 0.8)
     ),
-    url("https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-      center/cover no-repeat;
+    url("../assets/image/main_image.jpeg") center/cover no-repeat;
   color: var(--color-neutral-100);
   text-align: center;
   padding: var(--spacing-16) 0;
