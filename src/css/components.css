@@ -1,8 +1,11 @@
 @import 'variables.css';
 
-/* Components */
+:root {
+  --card-bg: linear-gradient(90deg, #54647f, #5b6b8b);
 
-/* Hero Section */
+  --text-color: white;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
 .hero {
   position: relative;
   background: linear-gradient(to right, rgba(15, 76, 129, 0.9), rgba(5, 164, 164, 0.8)), 
@@ -486,4 +489,120 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+.card-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--color-primary-light);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+.card-content {
+  flex: 1 1 60%;
+  min-width: 300px;
+  color: var(--text-color);
+}
+
+.card-title {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  margin-bottom: 1.25rem;
+  opacity: 0.9;
+}
+
+.card-image {
+  flex: 1 1 200px;
+  max-width: 300px;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+}
+
+.card-image:hover {
+  transform: scale(1.05) rotate(4deg);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  z-index: 2;
+}
+
+.card-image:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  animation: glow 1.5s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .card-content {
+    min-width: 100%;
+  }
+
+  .card-image {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 0.5rem;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    margin: 1rem auto;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card-image:hover {
+    transform: scale(1.03);
+  }
 }

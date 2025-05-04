@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = "" # оставьте пустым, если не нужно сборки
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
