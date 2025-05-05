@@ -1,12 +1,19 @@
+// Main JavaScript file
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Mobile navigation toggle
   setupMobileNav();
 
+  // Header scroll effect
   setupHeaderScroll();
 
+  // Smooth scroll for anchor links
   setupSmoothScroll();
 
+  // Initialize animations
   initAnimations();
 
+  // Set current year in copyright
   setCurrentYear();
 });
 
@@ -28,6 +35,7 @@ function setupMobileNav() {
       navToggle.innerHTML = nav.classList.contains("open") ? "✕" : "☰";
     });
 
+    // Close mobile nav when clicking on links
     const navLinks = nav.querySelectorAll("a");
     navLinks.forEach((link) => {
       link.addEventListener("click", function () {
@@ -38,6 +46,7 @@ function setupMobileNav() {
       });
     });
 
+    // Close mobile nav when resizing to desktop
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 768 && nav.classList.contains("open")) {
         nav.classList.remove("open");
@@ -47,6 +56,7 @@ function setupMobileNav() {
   }
 }
 
+// Header scroll effect
 function setupHeaderScroll() {
   const header = document.querySelector("header");
 
@@ -61,6 +71,7 @@ function setupHeaderScroll() {
   }
 }
 
+// Smooth scroll for anchor links
 function setupSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -85,7 +96,9 @@ function setupSmoothScroll() {
   });
 }
 
+// Initialize animations
 function initAnimations() {
+  // Add animation to elements as they enter the viewport
   const animatedElements = document.querySelectorAll(
     ".service, .service-item, .loan-type, .contact-item, .team-member"
   );
@@ -111,6 +124,7 @@ function initAnimations() {
   });
 }
 
+// Set current year for copyright
 function setCurrentYear() {
   const currentYearElements = document.querySelectorAll(".current-year");
   const currentYear = new Date().getFullYear();
@@ -120,6 +134,7 @@ function setCurrentYear() {
   });
 }
 
+// Loan calculator function
 function calculateLoan() {
   const amount = parseFloat(document.getElementById("loanAmount").value) || 0;
   const term = parseFloat(document.getElementById("loanTerm").value) || 0;
@@ -131,7 +146,7 @@ function calculateLoan() {
     return;
   }
 
-  const monthlyRate = 0.12 / 12;
+  const monthlyRate = 0.12 / 12; // 12% годовых
   const monthlyPayment =
     (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
   const totalPayment = monthlyPayment * term;
@@ -146,14 +161,17 @@ function calculateLoan() {
   `;
   resultElement.style.color = "var(--color-neutral-800)";
 
+  // Add animation to result
   resultElement.style.animation = "none";
   setTimeout(() => {
     resultElement.style.animation = "fadeIn 0.5s ease-out forwards";
   }, 10);
 }
 
+// Make the calculator function globally available
 window.calculateLoan = calculateLoan;
 
+// Form validation
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.querySelector(".contact-form form");
 
@@ -167,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let isValid = true;
 
+      // Validate name
       if (!nameInput.value.trim()) {
         showError(nameInput, "Пожалуйста, введите ваше имя");
         isValid = false;
@@ -174,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         removeError(nameInput);
       }
 
+      // Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
         showError(emailInput, "Пожалуйста, введите корректный email");
@@ -182,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         removeError(emailInput);
       }
 
+      // Validate message
       if (!messageInput.value.trim()) {
         showError(messageInput, "Пожалуйста, введите сообщение");
         isValid = false;
@@ -189,7 +210,10 @@ document.addEventListener("DOMContentLoaded", function () {
         removeError(messageInput);
       }
 
+      // Submit form if valid
       if (isValid) {
+        // Here you would normally send the form data to the server
+        // For now, let's just show a success message
         contactForm.innerHTML = `
           <div style="text-align: center; padding: 20px;">
             <h3 style="color: var(--color-success);">Спасибо за ваше сообщение!</h3>
