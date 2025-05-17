@@ -47,13 +47,13 @@ if (!localStorage.getItem("users")) {
     },
     {
       id: 4,
-      firstName: "Сергей",
-      lastName: "Иванов",
-      middleName: "Дмитриевич",
+      firstName: "Мубориз",
+      lastName: "Асроров",
+      middleName: "Илёсхуджаевич",
       email: "director@mail.com",
       password: "director123",
       avatar:
-        "https://images.pexels.com/photos/2361/nature-animal-fur-green.jpg",
+        "https://sun9-3.userapi.com/impg/lVTUSXes8jESuqP2uVQLNa1vvov-bVM2fQJLyw/Hmev_uqrzjk.jpg?size=640x640&quality=95&sign=d529b8ad3f4da963e274238c17408792&type=album",
       role: "director",
     },
   ];
