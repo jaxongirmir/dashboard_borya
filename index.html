@@ -29,6 +29,7 @@
             <li><a href="cards.html">Карты</a></li>
             <li><a href="loans.html">Кредиты</a></li>
             <li><a href="contact.html">Контакты</a></li>
+            <li><a href="dashboard.html">Войти в личный кабинет</a></li>
           </ul>
         </nav>
       </div>
@@ -213,6 +214,46 @@
           });
         });
       }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Проверяем наличие currentUser в localStorage
+        const currentUser = localStorage.getItem("currentUser");
+
+        // Находим элемент навбара с ссылкой на личный кабинет
+        const loginNavItem = document.querySelector("nav ul li:last-child");
+
+        if (currentUser) {
+          try {
+            const userData = JSON.parse(currentUser);
+
+            // Создаем новый элемент с изображением пользователя
+            const userAvatarItem = document.createElement("li");
+            userAvatarItem.innerHTML = `
+        <a href="dashboard.html" class="user-avatar">
+          <img src="${userData.avatar || "./assets/image/default-avatar.png"}" 
+               alt="User Avatar" 
+               style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+        </a>
+      `;
+
+            // Заменяем старый элемент на новый
+            if (loginNavItem && loginNavItem.parentNode) {
+              loginNavItem.parentNode.replaceChild(
+                userAvatarItem,
+                loginNavItem
+              );
+            }
+          } catch (e) {
+            console.error("Error parsing currentUser from localStorage", e);
+          }
+        }
+
+        // Остальной ваш код...
+        setupMobileNav();
+        setupHeaderScroll();
+        setupSmoothScroll();
+        initAnimations();
+        setCurrentYear();
+      });
     </script>
   </body>
 </html>

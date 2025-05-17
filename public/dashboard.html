@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Банк - Личный кабинет</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <a href="index.html" class="logo">
+            <img
+              src="./assets/image/header_logo.png"
+              alt="logo image"
+              style="width: 110px; object-fit: cover"
+            /><span>MBTJK</span>
+          </a>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="active" data-page="main">
+            <i class="fas fa-home"></i>
+            <span>Главная</span>
+          </li>
+          <li data-page="profile">
+            <i class="fas fa-user"></i>
+            <span>Профиль</span>
+          </li>
+          <li data-page="employees" id="employees-menu">
+            <i class="fas fa-users"></i>
+            <span>Сотрудники</span>
+          </li>
+          <!-- <li data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>Настройки</span>
+          </li> -->
+          <li id="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Выход</span>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="content">
+        <header class="top-bar">
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="user-info">
+            <div class="user-name" id="headerUserName">Загрузка...</div>
+            <div class="user-avatar" id="headerUserAvatar">
+              <img
+                src="https://images.pexels.com/photos/9499608/pexels-photo-9499608.jpeg"
+                alt="Аватар"
+              />
+            </div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <!-- Главная страница -->
+          <div class="page active" id="main-page">
+            <h1>Добро пожаловать в личный кабинет</h1>
+            <div class="dashboard-cards">
+              <div class="dashboard-card">
+                <div class="card-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="card-info">
+                  <h3>Профиль</h3>
+                  <p>Управление личными данными</p>
+                </div>
+              </div>
+              <!-- <div class="dashboard-card">
+                <div class="card-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="card-info">
+                  <h3>Безопасность</h3>
+                  <p>Смена пароля и настройки</p>
+                </div>
+              </div> -->
+              <div class="dashboard-card" id="employees-card">
+                <div class="card-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="card-info">
+                  <h3>Сотрудники</h3>
+                  <p>Просмотр списка сотрудников</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Страница профиля -->
+          <div class="page" id="profile-page">
+            <h1>Профиль</h1>
+            <div class="profile-container">
+              <div class="profile-header">
+                <div class="profile-avatar">
+                  <img
+                    id="profileAvatar"
+                    src="https://images.pexels.com/photos/9499608/pexels-photo-9499608.jpeg"
+                    alt="Аватар"
+                  />
+                  <div class="avatar-overlay">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                </div>
+                <div class="profile-name">
+                  <h2 id="profileFullName">Загрузка...</h2>
+                  <p id="profileEmail">Загрузка...</p>
+                  <p id="profileRole">Загрузка...</p>
+                </div>
+              </div>
+              <div class="profile-actions">
+                <button id="changeAvatar" class="btn-secondary">
+                  <i class="fas fa-image"></i> Изменить аватар
+                </button>
+                <button id="editProfile" class="btn-secondary">
+                  <i class="fas fa-edit"></i> Изменить персональные данные
+                </button>
+                <button id="changePassword" class="btn-secondary">
+                  <i class="fas fa-lock"></i> Сменить пароль
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Страница сотрудников -->
+          <div class="page" id="employees-page">
+            <h1>Список сотрудников</h1>
+            <div class="employees-list" id="employeesList">
+              <!-- Список сотрудников будет добавлен через JavaScript -->
+            </div>
+          </div>
+
+          <!-- Страница настроек
+          <div class="page" id="settings-page">
+            <h1>Настройки</h1>
+            <div class="settings-container">
+              <div class="settings-section">
+                <h3>Общие настройки</h3>
+                <div class="settings-option">
+                  <label for="darkMode">Темная тема</label>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="darkMode" />
+                    <span class="slider"></span>
+                  </div>
+                </div>
+                <div class="settings-option">
+                  <label for="notifications">Уведомления</label>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="notifications" checked />
+                    <span class="slider"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-section">
+                <h3>Язык</h3>
+                <div class="settings-option">
+                  <label for="language">Выберите язык</label>
+                  <select id="language">
+                    <option value="ru" selected>Русский</option>
+                    <option value="en">English</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </main>
+    </div>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="avatarModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Выберите аватар</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="avatar-grid">
+            <div
+              class="avatar-option"
+              data-avatar="https://images.pexels.com/photos/9499608/pexels-photo-9499608.jpeg"
+            >
+              <img
+                src="https://images.pexels.com/photos/9499608/pexels-photo-9499608.jpeg"
+                alt="Аватар 1"
+              />
+            </div>
+            <div
+              class="avatar-option"
+              data-avatar="https://yandex-images.clstorage.net/qTUO95399/a81390yGmk/tRngXlEg1FUctfSDNR8AdXPMAftbnW7FDYqSIgm87zOgxgN9hBMrWvQMSvajTjjE1aQ-BwR3Hqw1PkU8c9Yip6Ib9hIQZcIAQfPq1z0cBXdukULqR8dqmBfIwXxbvtNe0uNxFfwnAS6JcgXx6F0rqLPmXS41M0a5HkA7dTe9CYiWLt9xcB20Uz6IgIoVHTByX7I112HTZrkdh-MHDvngdsDLVizgMzkGtUos-YVHFrO1i1wUDBtrojtuGkgIpTecljz_aFYXgmA0traYHBooU0OaC9l13n65Mpz_LQni61vFw0cA1BAOGoRXMsC8QSukg45fCQ0XYbwpaQZiOokosIEU32daPqhrALOYgBMzBX9tgRnOSuJ2sReI3jIl_89N5uN4HuQaGy-lWQzHj0g8h62ISSsiKmy7CGg1eAKJH4u6Ht1JdD67bB2VmasyBA5FRLMq8G3UYpMvpvovJdnLctjDVDnmETkwgX0p5pduKpikslgkNjBeqRZPH2IbpDCPqDbAdGQFtWIPoLCOJCESeXuAN99t5VWTAajFCDrf2njh0Gsl9xIHO6h9Ktu_VhybnK5wBBg7fII-YyZvBbQ0k4UOzEhOG6puE5OVtSUDLEFPjx7IYtdVrwO_wS8H3_tv-MtiDscgMCq1WTLYgncHj6uHewAtMWqZFWUdTRS0N4G2KP17SjKNXhSLlJIjMD54bLos833QQYknjdslGfXBdub4YgXDDSEtrlIt_L5WF6-Pqm4qMghuqyd7EUMxtwOQtA7nSmQDuGoyjYmKHzQwaVOtIvxM_kO9PqLFEDnV_1H00HIr0SUyOIZTHd2TQxuQn7JeMysXTKUVYT1DDowsobkJ-GdrJaNtDq-IuSIrDVhyqQDSacVGnTC44BcgzNlz8vtbC9s7Ji-IdzrivkIVlamoZig4LGaAGX85RBqTI6ytF81TbTmRbA-pq50sFQpRTJE95nngX54coeYNJeY"
+            >
+              <img
+                src="https://yandex-images.clstorage.net/qTUO95399/a81390yGmk/tRngXlEg1FUctfSDNR8AdXPMAftbnW7FDYqSIgm87zOgxgN9hBMrWvQMSvajTjjE1aQ-BwR3Hqw1PkU8c9Yip6Ib9hIQZcIAQfPq1z0cBXdukULqR8dqmBfIwXxbvtNe0uNxFfwnAS6JcgXx6F0rqLPmXS41M0a5HkA7dTe9CYiWLt9xcB20Uz6IgIoVHTByX7I112HTZrkdh-MHDvngdsDLVizgMzkGtUos-YVHFrO1i1wUDBtrojtuGkgIpTecljz_aFYXgmA0traYHBooU0OaC9l13n65Mpz_LQni61vFw0cA1BAOGoRXMsC8QSukg45fCQ0XYbwpaQZiOokosIEU32daPqhrALOYgBMzBX9tgRnOSuJ2sReI3jIl_89N5uN4HuQaGy-lWQzHj0g8h62ISSsiKmy7CGg1eAKJH4u6Ht1JdD67bB2VmasyBA5FRLMq8G3UYpMvpvovJdnLctjDVDnmETkwgX0p5pduKpikslgkNjBeqRZPH2IbpDCPqDbAdGQFtWIPoLCOJCESeXuAN99t5VWTAajFCDrf2njh0Gsl9xIHO6h9Ktu_VhybnK5wBBg7fII-YyZvBbQ0k4UOzEhOG6puE5OVtSUDLEFPjx7IYtdVrwO_wS8H3_tv-MtiDscgMCq1WTLYgncHj6uHewAtMWqZFWUdTRS0N4G2KP17SjKNXhSLlJIjMD54bLos833QQYknjdslGfXBdub4YgXDDSEtrlIt_L5WF6-Pqm4qMghuqyd7EUMxtwOQtA7nSmQDuGoyjYmKHzQwaVOtIvxM_kO9PqLFEDnV_1H00HIr0SUyOIZTHd2TQxuQn7JeMysXTKUVYT1DDowsobkJ-GdrJaNtDq-IuSIrDVhyqQDSacVGnTC44BcgzNlz8vtbC9s7Ji-IdzrivkIVlamoZig4LGaAGX85RBqTI6ytF81TbTmRbA-pq50sFQpRTJE95nngX54coeYNJeY"
+                alt="Аватар 2"
+              />
+            </div>
+            <div
+              class="avatar-option"
+              data-avatar="https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg"
+            >
+              <img
+                src="https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg"
+                alt="Аватар 3"
+              />
+            </div>
+            <div
+              class="avatar-option"
+              data-avatar="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg"
+            >
+              <img
+                src="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg"
+                alt="Аватар 4"
+              />
+            </div>
+            <div
+              class="avatar-option"
+              data-avatar="https://images.pexels.com/photos/247302/pexels-photo-247302.jpeg"
+            >
+              <img
+                src="https://images.pexels.com/photos/247302/pexels-photo-247302.jpeg"
+                alt="Аватар 5"
+              />
+            </div>
+            <div
+              class="avatar-option"
+              data-avatar="https://images.pexels.com/photos/1828875/pexels-photo-1828875.jpeg"
+            >
+              <img
+                src="https://images.pexels.com/photos/1828875/pexels-photo-1828875.jpeg"
+                alt="Аватар 6"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="saveAvatar" class="btn-primary">Сохранить</button>
+          <button class="btn-secondary close-modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="editProfileModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Редактирование профиля</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="editProfileForm">
+            <div class="form-group">
+              <label for="editLastName">Фамилия</label>
+              <input
+                type="text"
+                id="editLastName"
+                placeholder="Введите фамилию"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editFirstName">Имя</label>
+              <input
+                type="text"
+                id="editFirstName"
+                placeholder="Введите имя"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editMiddleName">Отчество</label>
+              <input
+                type="text"
+                id="editMiddleName"
+                placeholder="Введите отчество"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editEmail">Email</label>
+              <input
+                type="email"
+                id="editEmail"
+                placeholder="Введите email"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="saveProfile" class="btn-primary">Сохранить</button>
+          <button class="btn-secondary close-modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="passwordModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Смена пароля</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="changePasswordForm">
+            <div class="form-group">
+              <label for="currentPassword">Текущий пароль</label>
+              <div class="password-container">
+                <input
+                  type="password"
+                  id="currentPassword"
+                  placeholder="Введите текущий пароль"
+                  required
+                />
+                <i class="fa fa-eye-slash toggle-password"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Новый пароль</label>
+              <div class="password-container">
+                <input
+                  type="password"
+                  id="newPassword"
+                  placeholder="Введите новый пароль"
+                  required
+                />
+                <i class="fa fa-eye-slash toggle-password"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmNewPassword"
+                >Подтверждение нового пароля</label
+              >
+              <div class="password-container">
+                <input
+                  type="password"
+                  id="confirmNewPassword"
+                  placeholder="Подтвердите новый пароль"
+                  required
+                />
+                <i class="fa fa-eye-slash toggle-password"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="savePassword" class="btn-primary">Сохранить</button>
+          <button class="btn-secondary close-modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification">
+      <p id="notification-message"></p>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
